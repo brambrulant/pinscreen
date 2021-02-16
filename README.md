@@ -1,2 +1,2 @@
 # pinscreen
-Processing sketch that works like a pinscreen
+Processing sketch that displays an image as a pinscreen
