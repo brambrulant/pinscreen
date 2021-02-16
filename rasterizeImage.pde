@@ -12,7 +12,7 @@ void setup() {
   size(900, 900, P3D);
   frameRate(20);
   smooth();
-  img = loadImage(""); // add your image here, also make sure to add it to the data folder. 
+  img = loadImage(""); // add your image here, also make sure to add it to the data folder by dragging the image into the editor window. 
   img.resize(900, 900);
 }
 
