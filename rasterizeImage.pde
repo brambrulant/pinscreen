@@ -1,7 +1,7 @@
 PImage img;
 float noise;
-float xoff = 80;
-float yoff = 0.01;
+float xoff = 0;
+float yoff = 0;
 float zoff1 = 0;
 float rotationX = 0;
 float rotationY = 0;
@@ -21,7 +21,6 @@ void draw() {
   fill(255,105,180, 125);
   float pinSize = (width/pins);
 
-  xoff = xoff * 1;
   rotationY = rotationY + 5;
   rotationX = rotationX + 5;
 
@@ -44,12 +43,14 @@ void draw() {
           }
       }
 
+  // here we're making the grid in x & y. The z loop is for the layers. 
   
   for (float x = 0; x < pins; x++) {
     for (float y = 0; y < pins; y++) {
       for (float z = 0; z < pins; z=pins) {
         color c = img.get(int(x*pinSize),int(y*pinSize));
         float b = map(brightness(c),0,255,0,1);
+        float xoff = map(b,0,1,-10,10);
         float yoff = map(b,0,1,-10,10);
         float zoff = map(b,0,1,-50,50);
 
@@ -66,12 +67,12 @@ void draw() {
         beginShape();
         vertex(0, 0, 0);
         vertex(0,yoff,0);
-        vertex(yoff,yoff,0);
-        vertex(yoff,0,0);
+        vertex(xoff,yoff,0);
+        vertex(xoff,0,0);
         vertex(0, 0, zoff);
         vertex(0,yoff,zoff);
-        vertex(yoff,yoff,zoff);
-        vertex(yoff,0,zoff);
+        vertex(xoff,yoff,zoff);
+        vertex(xoff,0,zoff);
         endShape();
         
         pop();
