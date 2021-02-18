@@ -47,7 +47,7 @@ void draw() {
   
   for (float x = 0; x < pins; x++) {
     for (float y = 0; y < pins; y++) {
-      for (float z = 0; z < pins; z=pins) {
+      for (float z = 0; z < pins; z+=10) {
         color c = img.get(int(x*pinSize),int(y*pinSize));
         float b = map(brightness(c),0,255,0,1);
         float xoff = map(b,0,1,-10,10);
